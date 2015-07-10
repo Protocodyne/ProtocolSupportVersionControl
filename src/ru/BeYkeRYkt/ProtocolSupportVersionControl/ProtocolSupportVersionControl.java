@@ -70,7 +70,7 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 
 				// living entity spawn block
 				List<Integer> livingIds = new ArrayList<Integer>();
-				livingIds.add(30);
+				livingIds.add(0);
 				fc.set("EntitySpawnBlock", livingIds);
 
 				fc.set("Messages.kick", "Your version of game is not supported on this server. \nActual versions: &a%VERSIONS%");
