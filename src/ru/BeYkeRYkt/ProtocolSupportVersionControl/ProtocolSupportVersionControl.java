@@ -63,12 +63,12 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 
 				// block replacer
 				List<String> block = new ArrayList<String>();
-				block.add("61:95:20"); // ProtocolVersion:oldID:newID
+				block.add("51:95:20"); // ProtocolVersion:oldID:newID
 				fc.set("ReplaceBlockIDs", block);
 
 				// item replacer
 				List<String> item = new ArrayList<String>();
-				item.add("61:95:20"); // ProtocolVersion:oldID:newID
+				item.add("51:95:20"); // ProtocolVersion:oldID:newID
 				fc.set("ReplaceItemIDs", item);
 
 				// living entity spawn block
