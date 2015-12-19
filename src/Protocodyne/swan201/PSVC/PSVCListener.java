@@ -1,4 +1,4 @@
-package ru.BeYkeRYkt.ProtocolSupportVersionControl;
+package Protocodyne.swan201.PSVC;
 
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -10,9 +10,9 @@ import org.bukkit.event.world.ChunkLoadEvent;
 
 public class PSVCListener implements Listener {
 
-	private ProtocolSupportVersionControl plugin;
+	private PSVC plugin;
 
-	public PSVCListener(ProtocolSupportVersionControl plugin) {
+	public PSVCListener(PSVC plugin) {
 		this.plugin = plugin;
 	}
 

@@ -1,5 +1,5 @@
-name: ProtocolSupportVersionControl
-main: ru.BeYkeRYkt.ProtocolSupportVersionControl.ProtocolSupportVersionControl
-version: 1.0.0
+name: PSVC
+main: Protocodyne.swan201.PSVC.PSVC
+version: 1.1
 author: BeYkeRYkt
 depend: [ProtocolLib, ProtocolSupport]

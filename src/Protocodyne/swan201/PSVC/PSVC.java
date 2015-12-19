@@ -1,8 +1,9 @@
-package ru.BeYkeRYkt.ProtocolSupportVersionControl;
+package Protocodyne.swan201.PSVC;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.ChatColor;
@@ -22,12 +23,12 @@ import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
 import com.comphenix.protocol.wrappers.WrappedChatComponent;
 
-public class ProtocolSupportVersionControl extends JavaPlugin {
+public class PSVC extends JavaPlugin {
 
 	private List<Integer> versions;
 	private List<Integer> entities;
 
-	private static ProtocolSupportVersionControl plugin;
+	private static PSVC plugin;
 	private String kickMessage;
 	private ProtocolManager manager;
 
@@ -47,7 +48,7 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 		FileConfiguration fc = getConfig();
 		try {
 			if (!new File(getDataFolder(), "config.yml").exists()) {
-				fc.options().header("ProtocolSupportVersionControl (PSVC) v" + getDescription().getVersion() + " Configuration" + "\nHave fun :3" + "\nby BeYkeRYkt" + "\nSupported protocol versions: " + "\n- 61 (1.5.2)" + "\n- 74 (1.6.2)" + "\n- 78 (1.6.4)" + "\n- 4 (1.7.5)" + "\n- 5 (1.7.10)" + "\n- 47 (1.8)" + "\nReplacers formula:" + "\n- ProtocolVersion : oldID : newID");
+				fc.options().header("PSVC (PSVC) v" + getDescription().getVersion() + " Configuration" + "\nHave fun :3" + "\nby BeYkeRYkt" + "\nSupported protocol versions: " + "\n- 61 (1.5.2)" + "\n- 74 (1.6.2)" + "\n- 78 (1.6.4)" + "\n- 4 (1.7.5)" + "\n- 5 (1.7.10)" + "\n- 47 (1.8)" + "\nReplacers formula:" + "\n- ProtocolVersion : oldID : newID");
 				// protocol versions
 				List<Integer> versions = new ArrayList<Integer>();
 				versions.add(-2); // PE
@@ -127,7 +128,13 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 
 		getServer().getPluginManager().registerEvents(new PSVCListener(this), this);
 	}
-
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void DecompileProtect() {
+		ArrayList list = new ArrayList(Arrays.asList(new Integer[]{Integer.valueOf(0), Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3), Integer.valueOf(4), Integer.valueOf(5), Integer.valueOf(6), Integer.valueOf(7), Integer.valueOf(8), Integer.valueOf(9), Integer.valueOf(10)}));
+		list.stream().filter((num) -> {
+		return ((Integer) num).intValue() % 2 == 0;
+		});
+	}
 	@SuppressWarnings("static-access")
 	@Override
 	public void onDisable() {
@@ -275,7 +282,7 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 		}
 	}
 
-	public static ProtocolSupportVersionControl getInstance() {
+	public static PSVC getInstance() {
 		return plugin;
 	}
 
