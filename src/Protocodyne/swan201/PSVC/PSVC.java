@@ -224,6 +224,7 @@ public class PSVC extends JavaPlugin {
 		return "1.8";
 	}
 
+	@SuppressWarnings("deprecation")
 	private void loadBlockReplace(List<String> list) {
 		for (String string : list) {
 			String[] parts = string.split(":");
@@ -249,6 +250,7 @@ public class PSVC extends JavaPlugin {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	private void loadItemReplace(List<String> list) {
 		for (String string : list) {
 			String[] parts = string.split(":");
