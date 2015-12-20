@@ -50,7 +50,11 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 				fc.options().header("ProtocolSupportVersionControl (PSVC) v" + getDescription().getVersion() + " Configuration" + "\nHave fun :3" + "\nby BeYkeRYkt" + "\nSupported protocol versions: " + "\n- 61 (1.5.2)" + "\n- 74 (1.6.2)" + "\n- 78 (1.6.4)" + "\n- 4 (1.7.5)" + "\n- 5 (1.7.10)" + "\n- 47 (1.8)" + "\nReplacers formula:" + "\n- ProtocolVersion : oldID : newID");
 				// protocol versions
 				List<Integer> versions = new ArrayList<Integer>();
+				versions.add(-2); // PE
+				versions.add(51); // 1.4.7
+				versions.add(60); // 1.5.1
 				versions.add(61); // 1.5.2
+				versions.add(73); // 1.6.1
 				versions.add(74); // 1.6.2
 				versions.add(78); // 1.6.4
 				versions.add(4); // 1.7.5
@@ -60,12 +64,12 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 
 				// block replacer
 				List<String> block = new ArrayList<String>();
-				block.add("61:95:20"); // ProtocolVersion:oldID:newID
+				block.add("51:95:20"); // ProtocolVersion:oldID:newID
 				fc.set("ReplaceBlockIDs", block);
 
 				// item replacer
 				List<String> item = new ArrayList<String>();
-				item.add("61:95:20"); // ProtocolVersion:oldID:newID
+				item.add("51:95:20"); // ProtocolVersion:oldID:newID
 				fc.set("ReplaceItemIDs", item);
 
 				// living entity spawn block
@@ -147,9 +151,10 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	private void loadProtocolVersions(List<String> list) {
 		int min = ProtocolVersion.fromId(47).ordinal(); // 1.8
-		int max = ProtocolVersion.fromId(61).ordinal(); // 1.5.2
+		int max = ProtocolVersion.fromId(-2).ordinal(); // PE
 		for (String string : list) {
 			int protocolVersion = Integer.parseInt(string);
 			ProtocolVersion version = ProtocolVersion.fromId(protocolVersion);
@@ -158,13 +163,13 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 				return;
 			}
 
-			// init minimum protocol version
+			// int minimum protocol version
 			if (version.ordinal() > min) {
 				min = version.ordinal();
 				minProtocolVersion = protocolVersion;
 			}
 
-			// init max protocol version
+			// int max protocol version
 			if (version.ordinal() < max) {
 				max = version.ordinal();
 				maxProtocolVersion = protocolVersion;
@@ -186,8 +191,16 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 
 	private String getVersion(int protocolVersion) {
 		switch (protocolVersion) {
+			case -2:
+				return "PE";
+			case 51:
+				return "1.4.7";
+			case 60:
+				return "1.5.1";
 			case 61:
 				return "1.5.2";
+			case 73:
+				return "1.6.1";
 			case 74:
 				return "1.6.2";
 			case 78:
