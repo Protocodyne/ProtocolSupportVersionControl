@@ -1,5 +1,5 @@
 name: ProtocolSupportVersionControl
 main: ru.BeYkeRYkt.ProtocolSupportVersionControl.ProtocolSupportVersionControl
-version: 1.0.0
+version: 1.0.3
 author: BeYkeRYkt
 depend: [ProtocolLib, ProtocolSupport]
