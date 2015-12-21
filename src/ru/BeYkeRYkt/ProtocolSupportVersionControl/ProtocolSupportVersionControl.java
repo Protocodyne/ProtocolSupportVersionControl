@@ -49,10 +49,15 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 				fc.options().header("ProtocolSupportVersionControl (PSVC) v" + getDescription().getVersion() + " Configuration" + "\nHave fun :3" + "\nby BeYkeRYkt" + "\nSupported protocol versions: " + "\n- 61 (1.5.2)" + "\n- 74 (1.6.2)" + "\n- 78 (1.6.4)" + "\n- 4 (1.7.5)" + "\n- 5 (1.7.10)" + "\n- 47 (1.8)" + "\nReplacers formula:" + "\n- ProtocolVersion : oldID : newID");
 				// protocol versions
 				List<Integer> versions = new ArrayList<Integer>();
+<<<<<<< HEAD
 				// versions.add(-2); // PE
+=======
+				versions.add(-2); // PE
+>>>>>>> origin/master
 				versions.add(51); // 1.4.7
 				versions.add(60); // 1.5.1
 				versions.add(61); // 1.5.2
+				versions.add(73); // 1.6.1
 				versions.add(74); // 1.6.2
 				versions.add(78); // 1.6.4
 				versions.add(4); // 1.7.5
@@ -147,9 +152,15 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	private void loadProtocolVersions(List<String> list) {
+<<<<<<< HEAD
 		ProtocolVersion min = ProtocolVersion.getLatest();
 		ProtocolVersion max = ProtocolVersion.getOldest(); // a temporary fixes
+=======
+		int min = ProtocolVersion.fromId(47).ordinal(); // 1.8
+		int max = ProtocolVersion.fromId(-2).ordinal(); // PE
+>>>>>>> origin/master
 		for (String string : list) {
 			int protocolVersion = Integer.parseInt(string);
 			ProtocolVersion version = ProtocolVersion.fromId(protocolVersion);
@@ -158,6 +169,7 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 				return;
 			}
 
+<<<<<<< HEAD
 			// init minimum protocol version
 			if (version.ordinal() > min.ordinal()) {
 				min = version;
@@ -166,6 +178,18 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 			// init max protocol version
 			if (version.ordinal() < max.ordinal()) {
 				max = version;
+=======
+			// int minimum protocol version
+			if (version.ordinal() > min) {
+				min = version.ordinal();
+				minProtocolVersion = protocolVersion;
+			}
+
+			// int max protocol version
+			if (version.ordinal() < max) {
+				max = version.ordinal();
+				maxProtocolVersion = protocolVersion;
+>>>>>>> origin/master
 			}
 
 			if (versionMsg == null) {
@@ -178,8 +202,41 @@ public class ProtocolSupportVersionControl extends JavaPlugin {
 		}
 
 		versionMsg = versionMsg.substring(0, versionMsg.length() - 2);
+<<<<<<< HEAD
 		minProtocolVersion = min;
 		maxProtocolVersion = max;
+=======
+		minMinecraftVersion = getVersion(minProtocolVersion);
+		maxMinecraftVersion = getVersion(maxProtocolVersion);
+	}
+
+	private String getVersion(int protocolVersion) {
+		switch (protocolVersion) {
+			case -2:
+				return "PE";
+			case 51:
+				return "1.4.7";
+			case 60:
+				return "1.5.1";
+			case 61:
+				return "1.5.2";
+			case 73:
+				return "1.6.1";
+			case 74:
+				return "1.6.2";
+			case 78:
+				return "1.6.4";
+			case 4:
+				return "1.7.5";
+			case 5:
+				return "1.7.10";
+			case 47:
+				return "1.8";
+			default:
+				break;
+		}
+		return "1.8";
+>>>>>>> origin/master
 	}
 
 	private void loadBlockReplace(List<String> list) {
