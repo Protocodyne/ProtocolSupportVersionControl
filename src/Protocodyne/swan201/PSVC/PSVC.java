@@ -112,7 +112,7 @@ public class PSVC extends JavaPlugin {
 					} else {
 						event.getPacket().getServerPings().read(0).setVersionProtocol(minProtocolVersion.getId());
 					}
-					event.getPacket().getServerPings().read(0).setVersionName(minProtocolVersion.getId() + " - " + maxProtocolVersion.getId());
+					event.getPacket().getServerPings().read(0).setVersionName(minProtocolVersion.getName() + " - " + maxProtocolVersion.getName());
 				}
 			}
 		});
